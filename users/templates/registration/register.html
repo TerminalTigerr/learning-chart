@@ -1,0 +1,14 @@
+{% extends 'learning_charts/base.html' %}
+
+{% block content %}
+
+    <form metho'post' action="{% url 'users:register' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button name='submit'>Register</button>
+        <input type="hidden" name="next" value="{% url 'learning_charts:index' %}" />
+    </form>
+
+{% endblock content %}
+
