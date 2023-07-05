@@ -1,18 +1,22 @@
 {% extends 'learning_charts/base.html' %}
 
-{% block content %}
-    <p>Topics</p>
+{% block page_header %}
+    <h1>Topics</h1>
+{% endblock page_header %}
 
+{% block content %}
     <ul>
         {% for topic in topics %}
             <li>
+                <h3>
                 <a href="{% url 'learning_charts:topic' topic.id %}">{{ topic }}</a>
+                </h3>
             </li>
         {% empty %}
-            <li>No topic added yet.</li>
+            <li><h3>No topic added yet.</h3></li>
         {% endfor %}
     </ul>
 
-    <a href="{% url 'learning_charts:new_topic' %}">Add a new topic</a>
+    <h3><a href="{% url 'learning_charts:new_topic' %}">Add a new topic</a><h3>
 
 {% endblock content %}
