@@ -79,7 +79,7 @@ def edit_entry(request, entry_id):
         form = EntryForm(instance=entry)
     else:
         # Post data submitted,process data
-        form = EntryForm(instance=form, data=request.POST)
+        form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('learning_charts:topic', topic_id=topic.id)
